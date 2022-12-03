@@ -1,5 +1,56 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  background-color: black;
-`
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.gray_light};
+`;
+
+export const ContainerBackground = styled.View`
+  width: 95%;
+  height: 80%;
+  margin-top: 24px;
+  border-radius: 36px;
+  background-color: ${({ theme }) => theme.colors.gray};
+`;
+
+export const ContainerContent = styled.ScrollView.attrs({
+  elevation: 30
+})`
+  width: 100%;
+  height: auto;
+  min-height: 340px;
+  position: absolute;
+  bottom: 0;
+  padding: 25px;
+  border-top-left-radius: 36px;
+  border-top-right-radius: 36px;
+  background-color: ${({ theme }) => theme.colors.white};
+`;
+
+export const ImageBackground = styled.Image`
+  width: 100%;
+  height: 60%;
+  margin-top: 32px;
+  position: absolute;
+`;
+
+export const Title = styled.Text`
+  font-size: 36px;
+  text-transform: uppercase;
+  font-family: ${({ theme }) => theme.fonts.black};
+`;
+
+export const TextContent = styled.Text`
+  font-size: 18px;
+  margin: 16px 0 32px;
+  font-family: ${({ theme }) => theme.fonts.book};
+`;
+
+export const TextButton = styled.Text`
+  font-size: 32px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.green};
+  font-family: ${({ theme }) => theme.fonts.black};
+`;
