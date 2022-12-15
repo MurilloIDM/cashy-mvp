@@ -9,6 +9,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "./global/styles/theme";
 
 import { HomeScreen } from "./screens/Home";
+import { LoginScreen } from "./screens/Login";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,11 @@ function App() {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
+          />
+
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>

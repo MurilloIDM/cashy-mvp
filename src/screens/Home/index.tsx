@@ -13,13 +13,13 @@ import {
   TextButton
 } from "./styled";
 
-export function HomeScreen() {
+export function HomeScreen({ navigation }) {
   const { height: heightScreen } = useWindowDimensions();
 
   const [heightContainerContent, setHeightContainerContent] = React.useState(null);
 
   function onLayoutContainer(event: LayoutChangeEvent): void {
-    const { width, height } = event.nativeEvent.layout
+    const { height } = event.nativeEvent.layout
 
     const percentege = (height * 100) / heightScreen;
     setHeightContainerContent(percentege);
@@ -53,7 +53,7 @@ export function HomeScreen() {
         </TextContent>
 
         <Button
-          onPress={() => console.log("Clicou aqui!")}
+          onPress={() => navigation.navigate("Login")}
         >
           <TextButton>
             Começar
