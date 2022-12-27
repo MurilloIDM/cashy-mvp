@@ -10,6 +10,8 @@ import theme from "./global/styles/theme";
 
 import { HomeScreen } from "./screens/Home";
 import { LoginScreen } from "./screens/Login";
+import { SelectAvatarScreen } from "./screens/SelectAvatar";
+import { TutorialScreen } from "./screens/Tutorial";
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +44,16 @@ function App() {
           <Stack.Screen
             name="Login"
             component={LoginScreen}
+          />
+
+          <Stack.Screen
+            name="SelectAvatar"
+            component={SelectAvatarScreen}
+          />
+
+          <Stack.Screen
+            name="Tutorial"
+            component={TutorialScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>

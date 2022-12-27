@@ -30,9 +30,8 @@ export function LoginScreen({ navigation }) {
   const disabledButton = validateName();
   
   async function onSubmit() {
-    await SecureStore.setItemAsync("username", name);
-    // TODO: Alterar chamada para a tela de avatares
-    navigation.navigate("Home");
+    await SecureStore.setItemAsync("fullname", name);
+    navigation.navigate("SelectAvatar");
   }
 
   function onLayoutContainer(event: LayoutChangeEvent): void {
