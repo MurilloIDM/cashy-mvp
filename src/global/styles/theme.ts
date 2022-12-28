@@ -5,6 +5,7 @@ export default {
     white: "#FFFFFF",
     black: "#000000",
     gray_light: "#EEEEEE",
+    red: "#DB385A",
     black_opacity_60: "rgba(0, 0, 0, .6)",
   },
   fonts: {

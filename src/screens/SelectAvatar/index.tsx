@@ -5,6 +5,8 @@ import * as SecureStore from "expo-secure-store";
 import { Button } from "../../components/Button";
 import { AvatarList } from "../../components/AvatarList";
 
+import { AccessContext, IValueAccessContext } from "../../context/AccessContext";
+
 import {
   Container,
   ContainerBackground,
@@ -17,33 +19,22 @@ import {
   TextButton,
   Title
 } from "./styled";
+import { User } from "../../utils/user";
 
 export function SelectAvatarScreen({ navigation }) {
-  const [firstname, setFirstname] = React.useState("");
+  const { user, updateValueUser } = React.useContext<IValueAccessContext>(AccessContext);
+
   const [imageSelected, setImageSelected] = React.useState(null);
-
-  React.useEffect(() => {
-    (async () => {
-      const fullName = await SecureStore.getItemAsync("fullname");
-
-      if (!fullName) {
-        navigation.navigate("Login");
-      }
-
-      const unformattedFirstname = fullName?.split(" ")?.[0];
-      const formattedFirstname = unformattedFirstname?.[0]?.toUpperCase() + unformattedFirstname?.substring(1);
-
-      setFirstname(formattedFirstname);
-    })();
-  }, []);
 
   function handleClickImage(imageId: number) {
     setImageSelected(imageId);
   }
 
   async function onSubmit() {
-    await SecureStore.setItemAsync("avatarId", String(imageSelected));
-    navigation.navigate("Tutorial");
+    const avatarId = String(imageSelected);
+
+    await User.setUser({ ...user, avatarId });
+    await updateValueUser();
   }
 
   return (
@@ -61,7 +52,7 @@ export function SelectAvatarScreen({ navigation }) {
         />
 
         <ContainerInfosUser>
-          <Title>{firstname}</Title>
+          <Title>{user?.firstname}</Title>
 
           <Subtitle>Clique e escolha seu <Span>Avatar</Span></Subtitle>
         </ContainerInfosUser>
