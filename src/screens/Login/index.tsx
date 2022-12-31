@@ -1,5 +1,4 @@
 import React from "react";
-import * as SecureStore from "expo-secure-store";
 import { KeyboardAvoidingView, LayoutChangeEvent, StatusBar } from "react-native";
 
 import { Input } from "../../components/Input";
@@ -19,19 +18,27 @@ import {
   Title
 } from "./styled";
 import { useName } from "../../hooks/useName";
+import { AccessContext, IValueAccessContext } from "../../context/AccessContext";
+import { User } from "../../utils/user";
+import { getFirstname } from "../../utils/getFirstname";
 
 const iconInstagram = require("../../../assets/icon_instagram.png");
 const iconLinkedin = require("../../../assets/icon_linkedin.png");
 
 export function LoginScreen({ navigation }) {
+  const { user, updateValueUser } = React.useContext<IValueAccessContext>(AccessContext);
+
   const { name, setName, validateName } = useName("");
   const [viewImageMain, setViewImageMain] = React.useState(true);
 
   const disabledButton = validateName();
   
   async function onSubmit() {
-    await SecureStore.setItemAsync("fullname", name);
-    navigation.navigate("SelectAvatar");
+    const fullname = name;
+    const firstname = getFirstname(fullname);
+
+    await User.setUser({ ...user, fullname, firstname });
+    await updateValueUser();
   }
 
   function onLayoutContainer(event: LayoutChangeEvent): void {
