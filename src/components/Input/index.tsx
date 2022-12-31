@@ -7,6 +7,7 @@ interface InputProps {
   mask: string;
   value: string;
   label: string;
+  color?: string;
   focus: boolean;
   required: boolean;
   placeholder: string;
@@ -25,6 +26,7 @@ const InputWithMask = ({
   label,
   value,
   focus,
+  color,
   onChange,
   required,
   placeholder,
@@ -36,6 +38,7 @@ const InputWithMask = ({
       <TextInputMask
         mask={mask}
         value={value}
+        color={color}
         autoFocus={focus}
         keyboardType={type}
         onChangeText={onChange}
@@ -50,6 +53,7 @@ const InputWithoutMask = ({
   label,
   value,
   focus,
+  color,
   onChange,
   required,
   placeholder,
@@ -63,6 +67,7 @@ const InputWithoutMask = ({
 
       <TextInput
         value={value}
+        color={color}
         autoFocus={focus}
         keyboardType={type}
         onChangeText={onChange}

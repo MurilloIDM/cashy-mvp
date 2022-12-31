@@ -2,6 +2,6 @@ import { Text } from "react-native";
 
 export function DashboardScreen() {
   return (
-    <Text>Essa será a tela de dashboard.</Text>
+    <Text style={{ marginTop: 64 }}>Essa será a tela de dashboard.</Text>
   );
 }

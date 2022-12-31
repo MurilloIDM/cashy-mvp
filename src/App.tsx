@@ -10,11 +10,11 @@ import { HomeScreen } from "./screens/Home";
 import { LoginScreen } from "./screens/Login";
 import { SelectAvatarScreen } from "./screens/SelectAvatar";
 import { TutorialScreen } from "./screens/Tutorial";
+import { DashboardScreen } from "./screens/Dashboard";
+import { RegisterCodeScreen } from "./screens/RegisterCode";
 
 import theme from "./global/styles/theme";
 import { ThemeProvider } from "styled-components";
-import { DashboardScreen } from "./screens/Dashboard";
-
 
 const Stack = createNativeStackNavigator();
 
@@ -78,6 +78,11 @@ export function App() {
                 name="Tutorial"
                 component={TutorialScreen}
               />
+
+              <Stack.Screen
+                name="RegisterCode"
+                component={RegisterCodeScreen}
+              />
             </>
           ))}
 
@@ -88,11 +93,13 @@ export function App() {
                 name="Dashboard"
                 component={DashboardScreen}
               />
+
+              <Stack.Screen
+                name="RegisterCode"
+                component={RegisterCodeScreen}
+              />
             </>
           )}
-
-
-
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

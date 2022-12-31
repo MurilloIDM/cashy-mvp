@@ -1,10 +1,10 @@
 import React from "react";
 import { StatusBar } from "react-native";
-import * as SecureStore from "expo-secure-store";
 
 import { Button } from "../../components/Button";
 import { AvatarList } from "../../components/AvatarList";
 
+import { User } from "../../utils/user";
 import { AccessContext, IValueAccessContext } from "../../context/AccessContext";
 
 import {
@@ -19,9 +19,8 @@ import {
   TextButton,
   Title
 } from "./styled";
-import { User } from "../../utils/user";
 
-export function SelectAvatarScreen({ navigation }) {
+export function SelectAvatarScreen() {
   const { user, updateValueUser } = React.useContext<IValueAccessContext>(AccessContext);
 
   const [imageSelected, setImageSelected] = React.useState(null);

@@ -14,7 +14,7 @@ import {
   ImageLogo
 } from "./styled";
 
-export function TutorialScreen() {
+export function TutorialScreen({ navigation }) {
   return (
     <TutorialProvider>
       <Container>
@@ -32,7 +32,7 @@ export function TutorialScreen() {
 
         <ContainerBox>
           <ContainerContent>
-            <CurrentStep />
+            <CurrentStep navigation={navigation} />
           </ContainerContent>
         </ContainerBox>
 

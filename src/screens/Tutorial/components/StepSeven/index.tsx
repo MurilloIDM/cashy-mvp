@@ -9,9 +9,9 @@ import {
   TextButton,
 } from "../../styled";
 
-export function StepSeven() {
+export function StepSeven({ navigation }) {
   function handleClickConfirm() {
-    console.log("Redirecionar para a tela de de cadastro do código.");
+    navigation.navigate("RegisterCode", { lessonCode: "" });
   }
 
   return (
