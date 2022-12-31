@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import {NavigationProp, ParamListBase} from "@react-navigation/native";
 
 import { StepOne } from "../StepOne";
 import { StepTwo } from "../StepTwo";
@@ -10,7 +11,12 @@ import { StepSeven } from "../StepSeven";
 
 import { TutorialContext } from "../../../../context/TutorialContext";
 
-export function CurrentStep() {
+
+interface CurrentStepProps {
+  navigation: NavigationProp<ParamListBase>;
+}
+
+export function CurrentStep(props: CurrentStepProps) {
   const { currentStep } = useContext(TutorialContext);
 
   const steps = {
@@ -25,5 +31,5 @@ export function CurrentStep() {
 
   const Component = steps[currentStep];
 
-  return <Component />;
+  return <Component {...props} />;
 }

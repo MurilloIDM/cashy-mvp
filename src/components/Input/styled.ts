@@ -17,7 +17,7 @@ export const TextInput = styled.TextInput`
   padding: 2px 6px;
   line-height: 24px;
   font-family: ${({ theme }) => theme.fonts.book};
-  color: ${({ theme }) => theme.colors.black_opacity_60};
+  color: ${({ theme, color }) => color ? theme.colors[color] : theme.colors.black_opacity_60};
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.black};
 `;
@@ -28,7 +28,7 @@ export const TextInputMask = styled(MaskInput)`
   padding: 2px 6px;
   line-height: 24px;
   font-family: ${({ theme }) => theme.fonts.book};
-  color: ${({ theme }) => theme.colors.black_opacity_60};
+  color: ${({ theme, color }) => color ? theme.colors[color] : theme.colors.black_opacity_60};
   border-bottom-width: 1px;
   border-bottom-color: ${({ theme }) => theme.colors.black};
 `;
