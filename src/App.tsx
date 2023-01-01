@@ -95,7 +95,7 @@ export function App() {
               />
 
               <Stack.Screen
-                name="RegisterCode"
+                name="RegisterCodePrivate"
                 component={RegisterCodeScreen}
               />
             </>
