@@ -9,6 +9,8 @@ export interface IUser {
   firstname: string;
   avatarId: string;
   lessonsCode: string[];
+  lessonsCompleted: string[];
+  cashyCoins: number;
 }
 
 export interface IValueAccessContext {
@@ -21,7 +23,9 @@ export function AccessProvider({ children }) {
     fullname: "",
     firstname: "",
     avatarId: "",
-    lessonsCode: []
+    lessonsCode: [],
+    lessonsCompleted: [],
+    cashyCoins: 0
   });
 
   async function updateValueUser() {

@@ -15,18 +15,18 @@ export const Image = styled.Image`
 `;
 
 export const Title = styled.Text`
-  font-size: 36px;
+  font-size: 24px;
   padding: 0px 24px;
-  text-align: center;
+  text-align: left;
   margin: 32px 0;
   text-align: left;
+  width: 90%;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
 export const TitleGreen = styled.Text`
-  font-size: 36px;
-  text-align: center;
+  font-size: 24px;
   margin-bottom: 16px;
   color: ${({ theme }) => theme.colors.green};
   font-family: ${({ theme }) => theme.fonts.black};
