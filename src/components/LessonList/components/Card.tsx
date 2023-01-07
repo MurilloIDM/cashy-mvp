@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable } from "react-native";
+import { Pressable, useWindowDimensions } from "react-native";
 import { AntDesign, Octicons } from "@expo/vector-icons";
 
 import { AccessContext, IValueAccessContext } from "../../../context/AccessContext";
@@ -7,6 +7,7 @@ import { AccessContext, IValueAccessContext } from "../../../context/AccessConte
 import { Card, CardBlocked, CardCompleted, ContainerText, Image, Text, Title } from "../styled";
 
 export function CardList({ item }) {
+  const { fontScale } = useWindowDimensions();
   const { user } = React.useContext<IValueAccessContext>(AccessContext);
 
   const userLessons = user?.lessonsCode || [];
@@ -26,9 +27,9 @@ export function CardList({ item }) {
     <Pressable onPress={handleOpenLesson}>
       <Card>
         <ContainerText>
-          <Title>{item?.title}</Title>
+          <Title fontScale={fontScale}>{item?.title}</Title>
 
-          <Text>{item?.description}</Text>
+          <Text fontScale={fontScale}>{item?.description}</Text>
         </ContainerText>
 
         <Image source={item?.imagePath} resizeMode="contain" />

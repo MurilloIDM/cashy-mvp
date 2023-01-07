@@ -14,7 +14,7 @@ import {
 } from "./styled";
 
 export function HomeScreen({ navigation }) {
-  const { height: heightScreen } = useWindowDimensions();
+  const { height: heightScreen, fontScale } = useWindowDimensions();
 
   const [heightContainerContent, setHeightContainerContent] = React.useState(null);
 
@@ -45,9 +45,9 @@ export function HomeScreen({ navigation }) {
         endFillColor={"#000"}
         onLayout={onLayoutContainer}
       >
-        <Title>Vem com a cashy e ganhe seu certificado!</Title>
+        <Title fontScale={fontScale}>Vem com a cashy e ganhe seu certificado!</Title>
 
-        <TextContent>
+        <TextContent fontScale={fontScale}>
           Aprenda a cuidar do seu dinheiro enquanto joga! De forma descomplicada junte CashyCoins e consiga
           seu certificado exclusivo!
         </TextContent>
@@ -55,7 +55,7 @@ export function HomeScreen({ navigation }) {
         <Button
           onPress={() => navigation.navigate("Login")}
         >
-          <TextButton>
+          <TextButton fontScale={fontScale}>
             Começar
           </TextButton>
         </Button>

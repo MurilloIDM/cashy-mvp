@@ -1,4 +1,10 @@
+import { Dimensions } from "react-native";
 import styled from "styled-components/native";
+
+interface ITextProps {
+  fontScale: number;
+  colorName?: string;
+}
 
 export const Container = styled.View`
   width: 100%;
@@ -19,10 +25,11 @@ export const ContainerBox = styled.View.attrs({
   elevation: 30
 })`
   width: 100%;
-  height: 100%;
+  height: ${(Dimensions.get('window').height - 200) + "px"};
   position: absolute;
   top: 200px;
   padding: 25px;
+  padding-bottom: 0;
   border-top-left-radius: 36px;
   border-top-right-radius: 36px;
   background-color: ${({ theme }) => theme.colors.white};
@@ -46,46 +53,45 @@ export const ImageLogo = styled.Image`
 
 export const ContainerContent = styled.View`
   padding-top: 130px;
-  padding-bottom: 32px;
   height: 100%;
+  display: flex;
   align-items: center;
 `;
 
 export const ContainerText = styled.View`
   width: 100%;
-  flex: 2;
 `;
 
-export const Title = styled.Text`
-  font-size: 32px;
+export const Title = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${28 / fontScale}px`};
   text-align: center;
   margin-bottom: 16px;
   color: ${({ theme }) => theme.colors.black};
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
-export const TitleGreen = styled.Text`
-  font-size: 32px;
+export const TitleGreen = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${28 / fontScale}px`};
   text-align: center;
   margin-bottom: 16px;
   color: ${({ theme }) => theme.colors.green};
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
-export const Subtitle = styled.Text`
-  font-size: 20px;
+export const Subtitle = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${20 / fontScale}px`};
   text-align: center;
   margin-bottom: 16px;
-  line-height: 24px;
+  ${({ fontScale }) => `line-height: ${24 / fontScale}px`};
   color: ${({ theme }) => theme.colors.black};
   font-family: ${({ theme }) => theme.fonts.medium};
 `;
 
-export const Span = styled.Text`
-  font-size: 20px;
+export const Span = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${20 / fontScale}px`};
   text-align: center;
   margin-bottom: 16px;
-  line-height: 24px;
+  ${({ fontScale }) => `line-height: ${24 / fontScale}px`};
   color: ${({ theme }) => theme.colors.green};
   font-family: ${({ theme }) => theme.fonts.medium};
 `;
@@ -93,14 +99,17 @@ export const Span = styled.Text`
 export const ContainerSimple = styled.View`
   width: 100%;
   height: 100%;
+  position: relative;
 `;
 
 export const ContainerButtons = styled.View`
   width: 100%;
-  flex: 1;
   display: flex;
+  position: absolute;
+  bottom: 24px;
   flex-flow: row nowrap;
   justify-content: space-between;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const ContainerButton = styled.View`
@@ -111,8 +120,8 @@ export const ContainerButtonUnique = styled.View`
   width: 100%;
 `;
 
-export const TextButton = styled.Text<{ colorName: string }>`
-  font-size: 32px;
+export const TextButton = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${24 / fontScale}px`};
   text-align: center;
   color: ${({ theme, colorName }) => theme.colors[colorName]};
   font-family: ${({ theme }) => theme.fonts.black};
@@ -120,6 +129,6 @@ export const TextButton = styled.Text<{ colorName: string }>`
 
 export const ImageCashyCoins = styled.Image`
   width: 80%;
-  height: 45%;
+  height: 180px;
   align-self: center;
 `;

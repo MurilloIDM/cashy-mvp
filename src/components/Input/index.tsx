@@ -1,3 +1,4 @@
+import { useWindowDimensions } from "react-native";
 import { ComponentProps } from "../../types/defaultPropsType";
 
 import { Container, Label, TextInput, TextInputMask } from "./styled";
@@ -14,10 +15,12 @@ interface InputProps {
 }
 
 export function Input (props: ComponentProps<InputProps>) {
+  const { fontScale } = useWindowDimensions();
+
   const { mask } = props;
   const Component = !!mask ? InputWithMask : InputWithoutMask;
 
-  return <Component {...props} />;
+  return <Component {...props} fontScale={fontScale} />;
 }
 
 const InputWithMask = ({
@@ -30,10 +33,11 @@ const InputWithMask = ({
   onChange,
   required,
   placeholder,
+  fontScale,
 }) => {
   return (
     <Container>
-      {!!label && (<Label>{label} {required && "*"}</Label>)}
+      {!!label && (<Label fontScale={fontScale}>{label} {required && "*"}</Label>)}
 
       <TextInputMask
         mask={mask}
@@ -41,6 +45,7 @@ const InputWithMask = ({
         color={color}
         autoFocus={focus}
         keyboardType={type}
+        fontScale={fontScale}
         onChangeText={onChange}
         placeholder={placeholder}
       />
@@ -58,12 +63,13 @@ const InputWithoutMask = ({
   required,
   placeholder,
   maxLength,
+  fontScale,
   ...props
 
 }) => {
   return (
     <Container>
-      {!!label && (<Label>{label} {required && "*"}</Label>)}
+      {!!label && (<Label fontScale={fontScale}>{label} {required && "*"}</Label>)}
 
       <TextInput
         value={value}
@@ -73,6 +79,7 @@ const InputWithoutMask = ({
         onChangeText={onChange}
         placeholder={placeholder}
         maxLength={maxLength}
+        fontScale={fontScale}
         {...props}
       />
     </Container>

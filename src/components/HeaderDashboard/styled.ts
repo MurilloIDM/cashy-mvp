@@ -1,5 +1,9 @@
 import styled from "styled-components/native";
 
+interface ITextProps {
+  fontScale: number;
+}
+
 export const Container = styled.View`
   width: 90%;
   height: 80px;
@@ -17,8 +21,8 @@ export const ContainerInfosUser = styled.View`
   align-items: center;
 `;
 
-export const Text = styled.Text`
-  font-size: 14px;
+export const Text = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${14 / fontScale}px`};
   text-align: right;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.book};

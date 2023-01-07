@@ -1,3 +1,4 @@
+import { useWindowDimensions } from "react-native";
 import { Button } from "../../../../components/Button";
 
 import {
@@ -10,6 +11,8 @@ import {
 } from "../../styled";
 
 export function StepSix({ navigation }) {
+  const { fontScale } = useWindowDimensions();
+
   function handleClickConfirm() {
     navigation.navigate("RegisterCode", { lessonCode: "697-796" });
   }
@@ -17,7 +20,7 @@ export function StepSix({ navigation }) {
   return (
     <ContainerSimple>
       <ContainerText>
-        <Subtitle>
+        <Subtitle fontScale={fontScale}>
           Sem problemas! Nós deixamos uma lição de presente para você!
         </Subtitle>
       </ContainerText>
@@ -25,7 +28,10 @@ export function StepSix({ navigation }) {
       <ContainerButtons>
         <ContainerButtonUnique>
           <Button onPress={handleClickConfirm}>
-            <TextButton colorName="green">
+            <TextButton
+              colorName="green"
+              fontScale={fontScale}
+            >
               Continuar
             </TextButton>
           </Button>

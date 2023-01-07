@@ -1,5 +1,9 @@
 import styled from "styled-components/native";
 
+interface ITextProps {
+  fontScale: number;
+}
+
 export const Container = styled.View`
   width: 100%;
   height: 100%;
@@ -14,26 +18,25 @@ export const Image = styled.Image`
   margin-top: 32px;
 `;
 
-export const Title = styled.Text`
-  font-size: 24px;
+export const Title = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${24 / fontScale}px`}
   padding: 0px 24px;
-  text-align: left;
+  text-align: center;
   margin: 32px 0;
-  text-align: left;
   width: 90%;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
-export const TitleGreen = styled.Text`
-  font-size: 24px;
+export const TitleGreen = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${24 / fontScale}px`}
   margin-bottom: 16px;
   color: ${({ theme }) => theme.colors.green};
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
-export const TextError = styled.Text`
-  font-size: 16px;
+export const TextError = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${16 / fontScale}px`}
   text-align: left;
   color: ${({ theme }) => theme.colors.red};
   font-family: ${({ theme }) => theme.fonts.book};
@@ -41,28 +44,28 @@ export const TextError = styled.Text`
 
 export const Form = styled.View`
   width: 100%;
-  height: 100%;
   padding: 0 32px;
 `;
 
 export const FormContent = styled.View`
   width: 100%;
-  flex: 1;
 `;
 
 export const CardContainer = styled.View`
   width: 100%;
-  flex: 1.16;
 `;
 
 export const ButtonContainer = styled.View`
   width: 100%;
-  flex: 1;
+  position: absolute;
+  align-self: center;
+  padding: 0 32px;
+  bottom: 24px;
 `;
 
 
-export const TextButton = styled.Text`
-  font-size: 32px;
+export const TextButton = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${24 / fontScale}px`}
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.black};

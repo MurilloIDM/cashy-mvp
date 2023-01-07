@@ -1,6 +1,6 @@
 import React from "react";
 import { Feather } from "@expo/vector-icons";
-import { Pressable, View } from "react-native";
+import { Pressable, useWindowDimensions, View } from "react-native";
 
 import { AccessContext, IValueAccessContext } from "../../context/AccessContext";
 
@@ -20,6 +20,7 @@ const AVATAR_LARGE = {
 };
 
 export function HeaderDashboard() {
+  const { fontScale } = useWindowDimensions();
   const navigation = React.useContext(NavigationContext);
   const { user } = React.useContext<IValueAccessContext>(AccessContext);
   
@@ -31,8 +32,8 @@ export function HeaderDashboard() {
 
       <ContainerInfosUser>
         <View>
-          <Text>Bem-vindo,</Text>
-          <Text>{user?.firstname}</Text>
+          <Text fontScale={fontScale}>Bem-vindo,</Text>
+          <Text fontScale={fontScale}>{user?.firstname}</Text>
         </View>
 
         <Image source={AVATAR_LARGE[user?.avatarId]} resizeMode="cover" />

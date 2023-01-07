@@ -1,3 +1,4 @@
+import { useWindowDimensions } from "react-native";
 import { currencyFormatter } from "../../utils/formatCurrency";
 import { Container, Image, Text, TextContainer, Title } from "./styled";
 
@@ -6,17 +7,18 @@ interface CardCashyCoinsProps {
 }
 
 export function CardCashyCoins({ cashyCoins }: CardCashyCoinsProps) {
+  const { fontScale } = useWindowDimensions();
   const formatCashyCoins = currencyFormatter(cashyCoins);
 
   return (
     <Container>
       <TextContainer>
-        <Title>
+        <Title fontScale={fontScale}>
           Atualmente {"\n"}
           você tem:
         </Title>
 
-        <Text>C{formatCashyCoins}</Text>
+        <Text fontScale={fontScale}>C{formatCashyCoins}</Text>
       </TextContainer>
 
       <Image source={require("../../../assets/logo-cashycoins.png")} resizeMode="contain" />

@@ -1,3 +1,4 @@
+import { useWindowDimensions } from "react-native";
 import { Button } from "../../../../components/Button";
 
 import {
@@ -10,6 +11,8 @@ import {
 } from "../../styled";
 
 export function StepSeven({ navigation }) {
+  const { fontScale } = useWindowDimensions();
+
   function handleClickConfirm() {
     navigation.navigate("RegisterCode", { lessonCode: "" });
   }
@@ -17,7 +20,7 @@ export function StepSeven({ navigation }) {
   return (
     <ContainerSimple>
       <ContainerText>
-        <Subtitle>
+        <Subtitle fontScale={fontScale}>
           Ótimo! Após inserir o código a lição será liberada e você poderá começar a aprender com a Cashy!
         </Subtitle>
       </ContainerText>
@@ -25,7 +28,10 @@ export function StepSeven({ navigation }) {
       <ContainerButtons>
         <ContainerButtonUnique>
           <Button onPress={handleClickConfirm}>
-            <TextButton colorName="green">
+            <TextButton
+              colorName="green"
+              fontScale={fontScale}  
+            >
               Continuar
             </TextButton>
           </Button>

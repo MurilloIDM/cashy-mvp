@@ -1,3 +1,4 @@
+import { useWindowDimensions } from "react-native";
 import { Circle, ContainerIn, ContainerOut, ImageLeft, ImageRight, Text, Title } from "./styled";
 
 interface CardProgressProps {
@@ -5,6 +6,8 @@ interface CardProgressProps {
 }
 
 export function CardProgress({ progress }: CardProgressProps) {
+  const { fontScale } = useWindowDimensions();
+
   return (
     <ContainerOut>
       <Circle
@@ -26,10 +29,9 @@ export function CardProgress({ progress }: CardProgressProps) {
       <ImageRight source={require("../../../assets/progress-right.png")} />
 
       <ContainerIn>
-        <Title>Básico</Title>
+        <Title fontScale={fontScale}>Básico</Title>
 
-
-        <Text>
+        <Text fontScale={fontScale}>
           Apredendo sobre Renda fixa {"\n"}
           CDB, LCI, Poupança e mais...
         </Text>

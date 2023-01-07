@@ -1,5 +1,9 @@
 import styled from "styled-components/native";
 
+interface ITextProps {
+  fontScale: number;
+}
+
 export const Container = styled.View`
   width: 100%;
   height: 235px;
@@ -22,16 +26,16 @@ export const Image = styled.Image`
   width: 50%;
 `;
 
-export const Title = styled.Text`
-  font-size: 24px;
+export const Title = styled.Text<ITextProps>`
+   ${({ fontScale }) => `font-size: ${24 / fontScale}px`};
   text-align: left;
   margin-bottom: 8px;
   color: ${({ theme }) => theme.colors.gray};
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
-export const Text = styled.Text`
-  font-size: 16px;
+export const Text = styled.Text<ITextProps>`
+   ${({ fontScale }) => `font-size: ${16 / fontScale}px`};
   text-align: left;
   color: ${({ theme }) => theme.colors.gray};
   font-family: ${({ theme }) => theme.fonts.book};

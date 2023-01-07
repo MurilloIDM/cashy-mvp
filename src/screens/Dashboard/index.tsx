@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, useWindowDimensions } from "react-native";
 
 import { Menu } from "../../components/Menu";
 import { LessonList } from "../../components/LessonList";
@@ -21,6 +21,7 @@ import {
 import { CardCashyCoins } from "../../components/CardCashyCoins";
 
 export function DashboardScreen() {
+  const { fontScale } = useWindowDimensions();
   const { user } = React.useContext<IValueAccessContext>(AccessContext);
 
   const totalLessonsAvaible = user?.lessonsCode?.length || 0;
@@ -39,36 +40,36 @@ export function DashboardScreen() {
         <HeaderDashboard />
 
         <ContainerTitle>
-          <Title>
+          <Title fontScale={fontScale}>
             {user?.firstname}, o que {"\n"}
-            vamos <TitleSpan>aprender hoje</TitleSpan>?
+            vamos <TitleSpan fontScale={fontScale}>aprender hoje</TitleSpan>?
           </Title>
         </ContainerTitle>
 
         <ContainerSubtitle>
-          <Subtitle>
-            Continue de <SubtitleBold>onde</SubtitleBold> {"\n"}
-            <SubtitleBold>você</SubtitleBold> parou.
+          <Subtitle fontScale={fontScale}>
+            Continue de <SubtitleBold fontScale={fontScale}>onde</SubtitleBold> {"\n"}
+            <SubtitleBold fontScale={fontScale}>você</SubtitleBold> parou.
           </Subtitle>
         </ContainerSubtitle>
 
         <LessonList />
 
         <ContainerSubtitle>
-          <Subtitle>
-            Confira seu <SubtitleBold>progresso</SubtitleBold>.
+          <Subtitle fontScale={fontScale}>
+            Confira seu <SubtitleBold fontScale={fontScale}>progresso</SubtitleBold>.
           </Subtitle>
         </ContainerSubtitle>
 
         <CardProgress progress={progressProfile} />
 
         <ContainerSubtitle>
-          <Subtitle>
-            Suas <SubtitleBold>CashyCoins</SubtitleBold>.
+          <Subtitle fontScale={fontScale}>
+            Suas <SubtitleBold fontScale={fontScale}>CashyCoins</SubtitleBold>.
           </Subtitle>
         </ContainerSubtitle>
 
-        <CardCashyCoins cashyCoins={user?.cashyCoins || 1000000} />
+        <CardCashyCoins cashyCoins={user?.cashyCoins || 0} />
       </ScrollView>
 
       <Menu currentScreen="home-screen" />

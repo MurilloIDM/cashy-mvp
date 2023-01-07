@@ -1,4 +1,5 @@
 import React from "react";
+import { useWindowDimensions } from "react-native";
 
 import { Button } from "../../../../components/Button";
 import { AccessContext, IValueAccessContext } from "../../../../context/AccessContext";
@@ -16,6 +17,7 @@ import {
 } from "../../styled";
 
 export function StepOne() {
+  const { fontScale } = useWindowDimensions();
   const { setCurrentStep } = React.useContext(TutorialContext);
   const { user } = React.useContext<IValueAccessContext>(AccessContext);  
 
@@ -30,15 +32,20 @@ export function StepOne() {
   return (
     <ContainerSimple>
       <ContainerText>
-        <Title>Bem vindo, <TitleGreen>{user?.firstname}</TitleGreen>!</Title>
+        <Title fontScale={fontScale}>
+          Bem vindo, <TitleGreen fontScale={fontScale}>{user?.firstname}</TitleGreen>!
+        </Title>
 
-        <Title>Vamos fazer um tour pela Cashy?</Title>
+        <Title fontScale={fontScale}>Vamos fazer um tour pela Cashy?</Title>
       </ContainerText>
 
       <ContainerButtons>
         <ContainerButton>
           <Button borderColor="#DB385A" onPress={handleClickSkip}>
-            <TextButton colorName="red">
+            <TextButton
+              colorName="red"
+              fontScale={fontScale}
+            >
               Pular
             </TextButton>
           </Button>
@@ -46,7 +53,10 @@ export function StepOne() {
 
         <ContainerButton>
           <Button onPress={handleClickStart}>
-            <TextButton colorName="green">
+            <TextButton
+              colorName="green"
+              fontScale={fontScale}
+            >
               Vamos!
             </TextButton>
           </Button>

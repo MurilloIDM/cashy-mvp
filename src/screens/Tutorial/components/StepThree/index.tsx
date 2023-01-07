@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useWindowDimensions } from "react-native";
 
 import { Button } from "../../../../components/Button";
 
@@ -16,6 +17,7 @@ import {
 } from "../../styled";
 
 export function StepThree() {
+  const { fontScale } = useWindowDimensions();
   const { setCurrentStep } = useContext(TutorialContext);
 
   function handleClickBack() {
@@ -29,8 +31,13 @@ export function StepThree() {
   return (
     <ContainerSimple>
       <ContainerText>
-        <Subtitle>
-          Através das <Span>CashyCoins</Span> você pode juntar e adquirir seu certificado Cashy, bottoms e outros!
+        <Subtitle fontScale={fontScale}>
+          Através das 
+          <Span
+            fontScale={fontScale}
+          >
+            CashyCoins
+          </Span> você pode juntar e adquirir seu certificado Cashy, bottoms e outros!
         </Subtitle>
 
         <ImageCashyCoins source={require("../../../../../assets/tutorial-cashycoins.png")} />
@@ -41,7 +48,10 @@ export function StepThree() {
       <ContainerButtons>
         <ContainerButton>
           <Button borderColor="#DB385A" onPress={handleClickBack}>
-            <TextButton colorName="red">
+            <TextButton
+              colorName="red"
+              fontScale={fontScale}
+            >
               Voltar
             </TextButton>
           </Button>
@@ -49,7 +59,10 @@ export function StepThree() {
 
         <ContainerButton>
           <Button onPress={handleClickNext}>
-            <TextButton colorName="green">
+            <TextButton
+              colorName="green"
+              fontScale={fontScale}  
+            >
               Seguir
             </TextButton>
           </Button>

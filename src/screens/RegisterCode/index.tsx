@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, useWindowDimensions } from "react-native";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
@@ -25,6 +25,7 @@ import {
 
 export function RegisterCodeScreen({ navigation, route }) {
   const { lessonCode } = route.params;
+  const { fontScale } = useWindowDimensions();
 
   const { user, updateValueUser } = React.useContext<IValueAccessContext>(AccessContext);
 
@@ -63,8 +64,8 @@ export function RegisterCodeScreen({ navigation, route }) {
 
       {!validCode ? (
         <>
-          <Title>
-            Insira abaixo seu <TitleGreen>código</TitleGreen>
+          <Title fontScale={fontScale}>
+            Insira abaixo seu <TitleGreen fontScale={fontScale}>código</TitleGreen>
           </Title>
 
           <Form>
@@ -79,46 +80,45 @@ export function RegisterCodeScreen({ navigation, route }) {
               />
 
               {error && (
-                <TextError>Informe um código de uma lição válida!</TextError>
+                <TextError fontScale={fontScale}>Informe um código de uma lição válida!</TextError>
               )}
             </FormContent>
-
-            <ButtonContainer>
-              <Button
-                onPress={onSumit}
-                disabled={!(!!hasCode)}
-                backgroundColor="#00FF87"
-              >
-                <TextButton>
-                  Confirmar
-                </TextButton>
-              </Button>
-            </ButtonContainer>
-            
           </Form>
+
+          <ButtonContainer>
+            <Button
+              onPress={onSumit}
+              disabled={!(!!hasCode)}
+              backgroundColor="#00FF87"
+            >
+              <TextButton fontScale={fontScale}>
+                Confirmar
+              </TextButton>
+            </Button>
+          </ButtonContainer>
         </>
       ) : (
         <>
-          <Title>
-            Lição <TitleGreen>liberada</TitleGreen>!
+          <Title fontScale={fontScale}>
+            Lição <TitleGreen fontScale={fontScale}>liberada</TitleGreen>!
           </Title>
 
           <Form>
             <CardContainer>
               <LessonCard lessonCode={code} />
             </CardContainer>
-            
-            <ButtonContainer>
-              <Button
-                onPress={handleClose}
-                backgroundColor="#00FF87"
-              >
-                <TextButton>
-                  Fechar
-                </TextButton>
-              </Button>
-            </ButtonContainer>
           </Form>
+
+          <ButtonContainer>
+            <Button
+              onPress={handleClose}
+              backgroundColor="#00FF87"
+            >
+              <TextButton fontScale={fontScale}>
+                Fechar
+              </TextButton>
+            </Button>
+          </ButtonContainer>
         </>
       )}
 

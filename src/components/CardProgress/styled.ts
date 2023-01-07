@@ -2,6 +2,10 @@ import styled from "styled-components/native";
 
 import * as Progress from "react-native-progress";
 
+interface ITextProps {
+  fontScale: number;
+}
+
 export const ContainerOut = styled.View`
   width: 100%;
   align-self: center;
@@ -16,8 +20,8 @@ export const ContainerIn = styled.View`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
-export const Title = styled.Text`
-  font-size: 24px;
+export const Title = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${24 / fontScale}px`};
   text-align: left;
   margin-bottom: 8px;
   text-align: center;
@@ -25,8 +29,8 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
-export const Text = styled.Text`
-  font-size: 12.5px;
+export const Text = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${12.5 / fontScale}px`};
   text-align: center;
   color: ${({ theme }) => theme.colors.gray};
   font-family: ${({ theme }) => theme.fonts.book};

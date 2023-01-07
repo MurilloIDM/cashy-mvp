@@ -1,9 +1,14 @@
 import React from "react";
-import { KeyboardAvoidingView, LayoutChangeEvent, StatusBar } from "react-native";
+import { KeyboardAvoidingView, LayoutChangeEvent, StatusBar, useWindowDimensions } from "react-native";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { SocialLink } from "../../components/SocialLink";
+
+import { User } from "../../utils/user";
+import { useName } from "../../hooks/useName";
+import { getFirstname } from "../../utils/getFirstname";
+import { AccessContext, IValueAccessContext } from "../../context/AccessContext";
 
 import {
   ContainerContent,
@@ -17,15 +22,12 @@ import {
   TextButton,
   Title
 } from "./styled";
-import { useName } from "../../hooks/useName";
-import { AccessContext, IValueAccessContext } from "../../context/AccessContext";
-import { User } from "../../utils/user";
-import { getFirstname } from "../../utils/getFirstname";
 
 const iconInstagram = require("../../../assets/icon_instagram.png");
 const iconLinkedin = require("../../../assets/icon_linkedin.png");
 
-export function LoginScreen({ navigation }) {
+export function LoginScreen() {
+  const { fontScale } = useWindowDimensions();
   const { user, updateValueUser } = React.useContext<IValueAccessContext>(AccessContext);
 
   const { name, setName, validateName } = useName("");
@@ -67,10 +69,10 @@ export function LoginScreen({ navigation }) {
           <ImageLogo source={require("../../../assets/logo.png")} />
 
           <ContainerContent hasImage={viewImageMain}>
-            <Title>Vamos lá!</Title>
+            <Title fontScale={fontScale}>Vamos lá!</Title>
 
-            <Subtitle>
-              Insira seus dados para <Span>continuar</Span>
+            <Subtitle fontScale={fontScale}>
+              Insira seus dados para <Span fontScale={fontScale}>continuar</Span>
             </Subtitle>
 
             <FormContainer>
@@ -85,11 +87,11 @@ export function LoginScreen({ navigation }) {
                 backgroundColor="#00FF87"
                 disabled={disabledButton}
               >
-                <TextButton>Acessar</TextButton>
+                <TextButton fontScale={fontScale}>Acessar</TextButton>
               </Button>
             </FormContainer>
 
-            <Span>Siga a Cashy</Span>
+            <Span fontScale={fontScale}>Siga a Cashy</Span>
 
             <ContainerSocialLinks>
               <SocialLink

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useWindowDimensions } from "react-native";
 
 import { Button } from "../../../../components/Button";
 
@@ -14,6 +15,7 @@ import {
 } from "../../styled";
 
 export function StepFive() {
+  const { fontScale } = useWindowDimensions();
   const { setCurrentStep } = useContext(TutorialContext);
 
   function handleClickNo() {
@@ -27,7 +29,7 @@ export function StepFive() {
   return (
     <ContainerSimple>
       <ContainerText>
-        <Subtitle>
+        <Subtitle fontScale={fontScale}>
           Você tem um código de uma lição?
         </Subtitle>
       </ContainerText>
@@ -35,7 +37,10 @@ export function StepFive() {
       <ContainerButtons>
         <ContainerButton>
           <Button borderColor="#DB385A" onPress={handleClickNo}>
-            <TextButton colorName="red">
+            <TextButton
+              colorName="red"
+              fontScale={fontScale}
+            >
               Não
             </TextButton>
           </Button>
@@ -43,7 +48,10 @@ export function StepFive() {
 
         <ContainerButton>
           <Button onPress={handleClickYes}>
-            <TextButton colorName="green">
+            <TextButton
+              colorName="green"
+              fontScale={fontScale}
+            >
               Sim
             </TextButton>
           </Button>

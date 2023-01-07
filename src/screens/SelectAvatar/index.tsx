@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, useWindowDimensions } from "react-native";
 
 import { Button } from "../../components/Button";
 import { AvatarList } from "../../components/AvatarList";
@@ -21,6 +21,7 @@ import {
 } from "./styled";
 
 export function SelectAvatarScreen() {
+  const { fontScale } = useWindowDimensions();
   const { user, updateValueUser } = React.useContext<IValueAccessContext>(AccessContext);
 
   const [imageSelected, setImageSelected] = React.useState(null);
@@ -51,9 +52,9 @@ export function SelectAvatarScreen() {
         />
 
         <ContainerInfosUser>
-          <Title>{user?.firstname}</Title>
+          <Title fontScale={fontScale}>{user?.firstname}</Title>
 
-          <Subtitle>Clique e escolha seu <Span>Avatar</Span></Subtitle>
+          <Subtitle fontScale={fontScale}>Clique e escolha seu <Span fontScale={fontScale}>Avatar</Span></Subtitle>
         </ContainerInfosUser>
       </ContainerBackground>
 
@@ -69,7 +70,7 @@ export function SelectAvatarScreen() {
           backgroundColor="#00FF87"
           disabled={!(!!imageSelected)}
         >
-          <TextButton>Continuar</TextButton>
+          <TextButton fontScale={fontScale}>Continuar</TextButton>
         </Button>
       </ContainerContent>
     </Container>

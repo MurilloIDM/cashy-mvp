@@ -1,8 +1,10 @@
+import { useWindowDimensions } from "react-native";
 import { LESSONS } from "../../global/mock/lessons";
 
 import { Container, ContainerText, Image, Text, Title } from "./styled";
 
 export function LessonCard({ lessonCode }) {
+  const { fontScale } = useWindowDimensions();
   const lesson = LESSONS.find((lesson) => lesson.code === lessonCode) || null;
 
   if (!lesson) return null; 
@@ -10,9 +12,9 @@ export function LessonCard({ lessonCode }) {
   return (
     <Container>
       <ContainerText>
-        <Title>{lesson?.title}</Title>
+        <Title fontScale={fontScale}>{lesson?.title}</Title>
 
-        <Text>{lesson?.description}</Text>
+        <Text fontScale={fontScale}>{lesson?.description}</Text>
       </ContainerText>
 
       <Image source={lesson?.imagePath} resizeMode="contain" />

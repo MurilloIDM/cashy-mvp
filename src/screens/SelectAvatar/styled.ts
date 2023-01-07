@@ -1,5 +1,9 @@
 import styled from "styled-components/native";
 
+interface ITextProps {
+  fontScale: number;
+}
+
 export const Container = styled.View`
   width: 100%;
   height: 100%;
@@ -57,30 +61,30 @@ export const ContainerInfosUser = styled.View`
   top: 18%;
 `;
 
-export const Title = styled.Text`
-  font-size: 40px;
+export const Title = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${40 / fontScale}px`};
   color: ${({ theme }) => theme.colors.white};
   text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
-export const Subtitle = styled.Text`
-  font-size: 20px;
+export const Subtitle = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${20 / fontScale}px`};
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
   text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
-export const Span = styled.Text`
-  font-size: 20px;
+export const Span = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${20 / fontScale}px`};
   color: ${({ theme }) => theme.colors.green};
   text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
-export const TextButton = styled.Text`
-  font-size: 32px;
+export const TextButton = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${24 / fontScale}px`};
   text-align: center;
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.black};

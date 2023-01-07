@@ -1,5 +1,9 @@
 import styled from "styled-components/native";
 
+interface ITextProps {
+  fontScale: number;
+}
+
 export const Container = styled.View`
   width: 90%;
   align-self: center;
@@ -16,15 +20,15 @@ export const TextContainer = styled.View`
   align-self: flex-end;
 `;
 
-export const Title = styled.Text`
-  font-size: 18px;
+export const Title = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${18 / fontScale}px`};
   text-align: left;
   color: ${({ theme }) => theme.colors.gray};
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
-export const Text = styled.Text`
-  font-size: 16px;
+export const Text = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${16 / fontScale}px`};
   text-align: left;
   color: ${({ theme }) => theme.colors.green};
   font-family: ${({ theme }) => theme.fonts.black};
