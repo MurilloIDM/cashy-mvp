@@ -12,6 +12,7 @@ import { SelectAvatarScreen } from "./screens/SelectAvatar";
 import { TutorialScreen } from "./screens/Tutorial";
 import { DashboardScreen } from "./screens/Dashboard";
 import { RegisterCodeScreen } from "./screens/RegisterCode";
+import { InvestTodayScreen } from "./screens/Lessons/InvestToday";
 
 import theme from "./global/styles/theme";
 import { ThemeProvider } from "styled-components";
@@ -97,6 +98,11 @@ export function App() {
               <Stack.Screen
                 name="RegisterCodePrivate"
                 component={RegisterCodeScreen}
+              />
+
+              <Stack.Screen
+                name="697-796"
+                component={InvestTodayScreen}
               />
             </>
           )}
