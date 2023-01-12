@@ -1,5 +1,6 @@
 import React from "react";
 import { Pressable, useWindowDimensions } from "react-native";
+import { NavigationContext } from "@react-navigation/native";
 import { AntDesign, Octicons } from "@expo/vector-icons";
 
 import { AccessContext, IValueAccessContext } from "../../../context/AccessContext";
@@ -8,6 +9,7 @@ import { Card, CardBlocked, CardCompleted, ContainerText, Image, Text, Title } f
 
 export function CardList({ item }) {
   const { fontScale } = useWindowDimensions();
+  const navigation = React.useContext(NavigationContext);
   const { user } = React.useContext<IValueAccessContext>(AccessContext);
 
   const userLessons = user?.lessonsCode || [];
@@ -19,8 +21,7 @@ export function CardList({ item }) {
   function handleOpenLesson() {
     if (isBlocked || isCompleted) return;
 
-    // TODO: Implementar redirecionamento correto para as telas.
-    console.log("Navegar para a tela " + item?.code);
+    navigation.navigate(item?.code);
   }
 
   return (
