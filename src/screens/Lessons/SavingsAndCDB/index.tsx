@@ -4,11 +4,11 @@ import { Alert, StatusBar } from "react-native";
 import { LessonHeader } from "../../../components/LessonHeader";
 
 import { LessonProvider } from "../../../context/LessonContext";
-import { CurrentStep } from "./components/CurrentStep";
 
 import { Container, ContainerIn } from "../styled";
+import { CurrentStep } from "./components/CurrentStep";
 
-export function InvestTodayScreen({ navigation }) {  
+export function SavingsAndCDBScreen({ navigation }) {
   React.useEffect(() => {
     navigation.addListener("beforeRemove", (event: any) => {
       if (event?.data?.action?.type !== "GO_BACK") return;
@@ -48,8 +48,9 @@ export function InvestTodayScreen({ navigation }) {
 
         <ContainerIn>
           <LessonHeader
-            textStartWhite="Invista"
-            textMiddleGreen="Hoje"
+            textStartWhite="Poupança"
+            textMiddleGreen="VS"
+            textEndWhite=" CDB"
           />
 
           <CurrentStep />

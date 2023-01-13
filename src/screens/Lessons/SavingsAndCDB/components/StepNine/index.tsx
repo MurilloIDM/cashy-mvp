@@ -1,19 +1,27 @@
 import React from "react";
 import { useWindowDimensions } from "react-native";
+
 import { Button } from "../../../../../components/Button";
 import { ProgressBar } from "../../../../../components/ProgressBar";
 
 import { ILesson, LessonContext } from "../../../../../context/LessonContext";
 
-import { BoxText, ContainerButtonUnique, Footer, ImageLogo, Text, TextButton } from "../../../styled";
+import {
+  BoxText,
+  ContainerButtonUnique,
+  Footer,
+  ImageLogo,
+  Text,
+  TextButton,
+} from "../../../styled";
 
-export function StepTwo() {
+export function StepNine() {
   const { fontScale } = useWindowDimensions();
-  const { progress, updateCurrentStep,  updateProgress } = React.useContext<ILesson>(LessonContext);
+  const { progress, updateProgress, updateCurrentStep } = React.useContext<ILesson>(LessonContext);
 
   function handleClickNext() {
-    updateCurrentStep("step-four");
-    updateProgress(4, 2);
+    updateCurrentStep("step-ten");
+    updateProgress(9, 7);
   }
 
   return (
@@ -22,7 +30,9 @@ export function StepTwo() {
 
       <BoxText>
         <Text fontScale={fontScale}>
-          Ótimo, mas que tal revisarmos?
+          Logo em 1 ano já vemos uma diferença entre a poupança e um CDB.
+          {"\n\n"}
+          Porém, a diferença aumenta quanto mais tempo passamos!
         </Text>
       </BoxText>
 

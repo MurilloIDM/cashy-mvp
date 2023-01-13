@@ -1,26 +1,34 @@
 import React from "react";
 import { useWindowDimensions } from "react-native";
+
 import { Button } from "../../../../../components/Button";
 import { ProgressBar } from "../../../../../components/ProgressBar";
 
-import { AccessContext, IValueAccessContext } from "../../../../../context/AccessContext";
 import { ILesson, LessonContext } from "../../../../../context/LessonContext";
 
-import { BoxText, ContainerButton, ContainerButtons, Footer, ImageLogo, Text, TextButton } from "../../../styled";
+import {
+  BoxText,
+  ContainerButton,
+  ContainerButtons,
+  Footer,
+  ImageLogo,
+  SpanGreen,
+  Text,
+  TextButton
+} from "../../../styled";
 
-export function StepOne() {
+export function StepTwo() {
   const { fontScale } = useWindowDimensions();
-  const { user } = React.useContext<IValueAccessContext>(AccessContext);
   const { progress, updateCurrentStep,  updateProgress } = React.useContext<ILesson>(LessonContext);
 
   function handleClickYes() {
-    updateCurrentStep("step-two");
-    updateProgress(4, 1);
+    updateCurrentStep("step-three");
+    updateProgress(9, 2);
   }
 
   function handleClickNo() {
-    updateCurrentStep("step-three");
-    updateProgress(4, 1);
+    updateCurrentStep("step-four");
+    updateProgress(9, 2);
   }
 
   return (
@@ -29,12 +37,11 @@ export function StepOne() {
 
       <BoxText>
         <Text fontScale={fontScale}>
-          {user?.firstname}, sabe o que são ativos e passivos?
+          Você conhece a modalidade de investimentos <SpanGreen fontScale={fontScale}>CDB</SpanGreen>?
         </Text>
       </BoxText>
 
       <Footer>
-
         <ContainerButtons>
           <ContainerButton>
             <Button onPress={handleClickYes}>

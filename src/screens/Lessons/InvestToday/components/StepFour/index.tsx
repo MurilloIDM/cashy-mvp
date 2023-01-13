@@ -5,7 +5,7 @@ import { ProgressBar } from "../../../../../components/ProgressBar";
 
 import { ILesson, LessonContext } from "../../../../../context/LessonContext";
 
-import { BoxText, ContainerButtonUnique, Footer, ImageLogo, Span, Text, TextButton } from "../../styled";
+import { BoxText, ContainerButtonUnique, Footer, ImageLogo, Span, Text, TextButton } from "../../../styled";
 
 export function StepFour() {
   const { fontScale } = useWindowDimensions();

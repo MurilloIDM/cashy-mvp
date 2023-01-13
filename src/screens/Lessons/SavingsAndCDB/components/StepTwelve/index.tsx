@@ -1,19 +1,27 @@
 import React from "react";
 import { useWindowDimensions } from "react-native";
+
 import { Button } from "../../../../../components/Button";
 import { ProgressBar } from "../../../../../components/ProgressBar";
 
 import { ILesson, LessonContext } from "../../../../../context/LessonContext";
 
-import { BoxText, ContainerButtonUnique, Footer, ImageLogo, Text, TextButton } from "../../../styled";
+import {
+  BoxText,
+  ContainerButtonUnique,
+  Footer,
+  ImageLogo,
+  SpanGreen,
+  Text,
+  TextButton,
+} from "../../../styled";
 
-export function StepTwo() {
+export function StepTwelve() {
   const { fontScale } = useWindowDimensions();
-  const { progress, updateCurrentStep,  updateProgress } = React.useContext<ILesson>(LessonContext);
+  const { progress, updateCurrentStep } = React.useContext<ILesson>(LessonContext);
 
   function handleClickNext() {
-    updateCurrentStep("step-four");
-    updateProgress(4, 2);
+    updateCurrentStep("step-eleven");
   }
 
   return (
@@ -22,7 +30,8 @@ export function StepTwo() {
 
       <BoxText>
         <Text fontScale={fontScale}>
-          Ótimo, mas que tal revisarmos?
+          Quase <SpanGreen fontScale={fontScale}>lá</SpanGreen>! {"\n"}
+          Que tal tentarmos de novo?
         </Text>
       </BoxText>
 
@@ -33,7 +42,7 @@ export function StepTwo() {
                 colorName="green"
                 fontScale={fontScale}
               >
-                Continuar
+                Tentar novamente
               </TextButton>
             </Button>
         </ContainerButtonUnique>

@@ -20,15 +20,15 @@ import {
   Title
 } from "../../../styled";
 
-export function StepSix() {
+export function StepThirteen() {
   const { fontScale } = useWindowDimensions();
   const navigation = React.useContext(NavigationContext);
   const { progress } = React.useContext<ILesson>(LessonContext);
   const { user, updateValueUser } = React.useContext<IValueAccessContext>(AccessContext);
 
   async function handleClickFinish() {
-    const cashyCoins = user?.cashyCoins + 250000;
-    await User.setUser({ ...user, cashyCoins, lessonsCompleted: [...user?.lessonsCompleted, "697-796"]});
+    const cashyCoins = user?.cashyCoins + 500000;
+    await User.setUser({ ...user, cashyCoins, lessonsCompleted: [...user?.lessonsCompleted, "364-463"]});
     updateValueUser();
 
     navigation.navigate("Dashboard");
@@ -43,7 +43,7 @@ export function StepSix() {
         Parabéns! {"\n"} Você recebeu {"\n"}
       </Subtitle>
 
-      <SubtitleGreen fontScale={fontScale}>C$250.000,00</SubtitleGreen>
+      <SubtitleGreen fontScale={fontScale}>C$500.000,00</SubtitleGreen>
 
       <Footer>
         <ContainerButtonUnique>

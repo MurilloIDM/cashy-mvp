@@ -49,12 +49,29 @@ export const Text = styled.Text<ITextProps>`
   font-family: ${({ theme }) => theme.fonts.medium};
 `;
 
+export const TextExtraInfo = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${16 / fontScale}px`};
+  text-align: left;
+  margin-top: 12px;
+  ${({ fontScale }) => `line-height: ${20 / fontScale}px`};
+  color: ${({ theme }) => theme.colors.black};
+  font-family: ${({ theme }) => theme.fonts.book};
+`;
+
 export const Span = styled.Text<ITextProps>`
   ${({ fontScale }) => `font-size: ${20 / fontScale}px`};
   text-align: left;
   ${({ fontScale }) => `line-height: ${24 / fontScale}px`};
   color: ${({ theme }) => theme.colors.black};
   font-family: ${({ theme }) => theme.fonts.black};
+`;
+
+export const SpanGreen = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${20 / fontScale}px`};
+  text-align: left;
+  ${({ fontScale }) => `line-height: ${24 / fontScale}px`};
+  color: ${({ theme }) => theme.colors.green};
+  font-family: ${({ theme }) => theme.fonts.medium};
 `;
 
 export const Title = styled.Text<ITextProps>`
@@ -73,6 +90,16 @@ export const Subtitle = styled.Text<ITextProps>`
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.fonts.black};
   margin-top: 32px;
+`;
+
+export const SubtitleGreenWithoutBackground = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${24 / fontScale}px`};
+  text-align: center;
+  ${({ fontScale }) => `line-height: ${28 / fontScale}px`};
+  color: ${({ theme }) => theme.colors.green};
+  font-family: ${({ theme }) => theme.fonts.black};
+  padding: 24px;
+  border-radius: 12px;
 `;
 
 export const SubtitleGreen = styled.Text<ITextProps>`

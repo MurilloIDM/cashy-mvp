@@ -16,6 +16,7 @@ import { InvestTodayScreen } from "./screens/Lessons/InvestToday";
 
 import theme from "./global/styles/theme";
 import { ThemeProvider } from "styled-components";
+import { SavingsAndCDBScreen } from "./screens/Lessons/SavingsAndCDB";
 
 const Stack = createNativeStackNavigator();
 
@@ -103,6 +104,11 @@ export function App() {
               <Stack.Screen
                 name="697-796"
                 component={InvestTodayScreen}
+              />
+
+              <Stack.Screen
+                name="364-463"
+                component={SavingsAndCDBScreen}
               />
             </>
           )}

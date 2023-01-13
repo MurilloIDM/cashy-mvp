@@ -1,19 +1,30 @@
 import React from "react";
 import { useWindowDimensions } from "react-native";
+
 import { Button } from "../../../../../components/Button";
 import { ProgressBar } from "../../../../../components/ProgressBar";
+import { AccessContext, IValueAccessContext } from "../../../../../context/AccessContext";
 
 import { ILesson, LessonContext } from "../../../../../context/LessonContext";
 
-import { BoxText, ContainerButtonUnique, Footer, ImageLogo, Text, TextButton } from "../../../styled";
+import {
+  BoxText,
+  ContainerButtonUnique,
+  Footer,
+  ImageLogo,
+  SpanGreen,
+  Text,
+  TextButton,
+} from "../../../styled";
 
-export function StepTwo() {
+export function StepEight() {
   const { fontScale } = useWindowDimensions();
-  const { progress, updateCurrentStep,  updateProgress } = React.useContext<ILesson>(LessonContext);
+  const { user } = React.useContext<IValueAccessContext>(AccessContext);
+  const { progress, updateProgress, updateCurrentStep } = React.useContext<ILesson>(LessonContext);
 
   function handleClickNext() {
-    updateCurrentStep("step-four");
-    updateProgress(4, 2);
+    updateCurrentStep("step-nine");
+    updateProgress(9, 6);
   }
 
   return (
@@ -22,7 +33,8 @@ export function StepTwo() {
 
       <BoxText>
         <Text fontScale={fontScale}>
-          Ótimo, mas que tal revisarmos?
+          <SpanGreen fontScale={fontScale}>Muito bem,</SpanGreen> {user?.firstname}! {"\n"}
+          Agora dá uma olhada comparando a poupança com um CDB que rende 15,8% ao ano, com um investimento inicial de R$ 1.000,00 em 12 meses.
         </Text>
       </BoxText>
 
