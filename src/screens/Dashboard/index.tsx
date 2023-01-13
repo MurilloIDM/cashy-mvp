@@ -22,12 +22,16 @@ import { CardCashyCoins } from "../../components/CardCashyCoins";
 
 export function DashboardScreen() {
   const { fontScale } = useWindowDimensions();
+  const [progress, setProgress] = React.useState<number>(0);
   const { user } = React.useContext<IValueAccessContext>(AccessContext);
 
-  const totalLessonsAvaible = user?.lessonsCode?.length || 0;
-  const totalLessonsCompleted = user?.lessonsCompleted?.length  || 0;
+  React.useEffect(() => {
+    const totalLessonsAvaible = user?.lessonsCode?.length || 0;
+    const totalLessonsCompleted = user?.lessonsCompleted?.length  || 0;
 
-  const progressProfile = ((100 * totalLessonsCompleted) / totalLessonsAvaible) / 100;
+    const progressProfile = ((100 * totalLessonsCompleted) / totalLessonsAvaible) / 100;
+    setProgress(progressProfile);
+  }, [user]);
 
   return (
     <Container>
@@ -61,7 +65,7 @@ export function DashboardScreen() {
           </Subtitle>
         </ContainerSubtitle>
 
-        <CardProgress progress={progressProfile} />
+        <CardProgress progress={progress} />
 
         <ContainerSubtitle>
           <Subtitle fontScale={fontScale}>

@@ -1,19 +1,28 @@
 import React from "react";
 import { useWindowDimensions } from "react-native";
+
 import { Button } from "../../../../../components/Button";
 import { ProgressBar } from "../../../../../components/ProgressBar";
 
 import { ILesson, LessonContext } from "../../../../../context/LessonContext";
 
-import { BoxText, ContainerButtonUnique, Footer, ImageLogo, Text, TextButton } from "../../../styled";
+import {
+  BoxText,
+  ContainerButtonUnique,
+  Footer,
+  ImageLogo,
+  Text,
+  TextButton,
+  TextExtraInfo,
+} from "../../../styled";
 
-export function StepTwo() {
+export function StepTen() {
   const { fontScale } = useWindowDimensions();
-  const { progress, updateCurrentStep,  updateProgress } = React.useContext<ILesson>(LessonContext);
+  const { progress, updateProgress, updateCurrentStep } = React.useContext<ILesson>(LessonContext);
 
   function handleClickNext() {
-    updateCurrentStep("step-four");
-    updateProgress(4, 2);
+    updateCurrentStep("step-eleven");
+    updateProgress(9, 8);
   }
 
   return (
@@ -22,8 +31,11 @@ export function StepTwo() {
 
       <BoxText>
         <Text fontScale={fontScale}>
-          Ótimo, mas que tal revisarmos?
+          Da uma olhada em 2 anos! {"\n"}
+          A diferença já passa de 170,8%
         </Text>
+
+        <TextExtraInfo fontScale={fontScale}>Fonte: Toro Investimentos</TextExtraInfo>
       </BoxText>
 
       <Footer>

@@ -1,10 +1,11 @@
 import React from "react";
 import { useWindowDimensions } from "react-native";
+
 import { Button } from "../../../../../components/Button";
 import { ProgressBar } from "../../../../../components/ProgressBar";
 
-import { AccessContext, IValueAccessContext } from "../../../../../context/AccessContext";
 import { ILesson, LessonContext } from "../../../../../context/LessonContext";
+import { AccessContext, IValueAccessContext } from "../../../../../context/AccessContext";
 
 import { BoxText, ContainerButton, ContainerButtons, Footer, ImageLogo, Text, TextButton } from "../../../styled";
 
@@ -15,12 +16,12 @@ export function StepOne() {
 
   function handleClickYes() {
     updateCurrentStep("step-two");
-    updateProgress(4, 1);
+    updateProgress(9, 1);
   }
 
   function handleClickNo() {
-    updateCurrentStep("step-three");
-    updateProgress(4, 1);
+    updateCurrentStep("step-two");
+    updateProgress(9, 1);
   }
 
   return (
@@ -29,7 +30,7 @@ export function StepOne() {
 
       <BoxText>
         <Text fontScale={fontScale}>
-          {user?.firstname}, sabe o que são ativos e passivos?
+          {user?.firstname}, você já chegou a investir na poupança?
         </Text>
       </BoxText>
 

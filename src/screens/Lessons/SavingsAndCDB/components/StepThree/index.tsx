@@ -1,19 +1,27 @@
 import React from "react";
 import { useWindowDimensions } from "react-native";
+
 import { Button } from "../../../../../components/Button";
 import { ProgressBar } from "../../../../../components/ProgressBar";
 
 import { ILesson, LessonContext } from "../../../../../context/LessonContext";
 
-import { BoxText, ContainerButtonUnique, Footer, ImageLogo, Text, TextButton } from "../../../styled";
+import {
+  BoxText,
+  ContainerButtonUnique,
+  Footer,
+  ImageLogo,
+  Text,
+  TextButton
+} from "../../../styled";
 
-export function StepTwo() {
+export function StepThree() {
   const { fontScale } = useWindowDimensions();
   const { progress, updateCurrentStep,  updateProgress } = React.useContext<ILesson>(LessonContext);
 
   function handleClickNext() {
-    updateCurrentStep("step-four");
-    updateProgress(4, 2);
+    updateCurrentStep("step-five");
+    updateProgress(9, 3);
   }
 
   return (
