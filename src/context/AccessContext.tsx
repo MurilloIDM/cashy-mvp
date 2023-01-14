@@ -11,6 +11,7 @@ export interface IUser {
   lessonsCode: string[];
   lessonsCompleted: string[];
   cashyCoins: number;
+  purchasedProducts: string[];
 }
 
 export interface IValueAccessContext {
@@ -25,7 +26,8 @@ export function AccessProvider({ children }) {
     avatarId: "",
     lessonsCode: [],
     lessonsCompleted: [],
-    cashyCoins: 0
+    cashyCoins: 0,
+    purchasedProducts: [],
   });
 
   async function updateValueUser() {

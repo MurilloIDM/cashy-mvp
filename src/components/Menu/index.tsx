@@ -13,7 +13,7 @@ export function Menu({ currentScreen }: MenuProps) {
   const navigation = React.useContext(NavigationContext);
 
   const isHomeScreen = currentScreen === "home-screen";
-  const isStoreCashyCoinsScreen = currentScreen === "store-cashy-coins-screen";
+  const isStoreCashyCoinsScreen = currentScreen === "store-screen";
 
   function navigateToDashboard() {
     if (isHomeScreen) return;
@@ -24,7 +24,7 @@ export function Menu({ currentScreen }: MenuProps) {
   function navigateToStore() {
     if (isStoreCashyCoinsScreen) return;
 
-    // navigation.navigate("Store", {});
+    navigation.navigate("Store", {});
   }
 
   return (

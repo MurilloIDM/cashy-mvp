@@ -17,6 +17,8 @@ import { InvestTodayScreen } from "./screens/Lessons/InvestToday";
 import theme from "./global/styles/theme";
 import { ThemeProvider } from "styled-components";
 import { SavingsAndCDBScreen } from "./screens/Lessons/SavingsAndCDB";
+import { StoreScreen } from "./screens/Store";
+import { ProductConfirmScreen } from "./screens/ProductConfirm";
 
 const Stack = createNativeStackNavigator();
 
@@ -97,8 +99,18 @@ export function App() {
               />
 
               <Stack.Screen
+                name="Store"
+                component={StoreScreen}
+              />
+
+              <Stack.Screen
                 name="RegisterCodePrivate"
                 component={RegisterCodeScreen}
+              />
+
+              <Stack.Screen
+                name="ProductConfirm"
+                component={ProductConfirmScreen}
               />
 
               <Stack.Screen
