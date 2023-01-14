@@ -1,4 +1,4 @@
-import { ImageSourcePropType, Linking, Pressable, StyleProp } from "react-native";
+import { ImageSourcePropType, Linking, Pressable } from "react-native";
 import { Image } from "./styled";
 
 interface SocialLinkProps {
