@@ -23,8 +23,9 @@ import {
   Title
 } from "./styled";
 
-const iconInstagram = require("../../../assets/icon_instagram.png");
+const iconTiktok = require("../../../assets/tiktok.png");
 const iconLinkedin = require("../../../assets/icon_linkedin.png");
+const iconInstagram = require("../../../assets/icon_instagram.png");
 
 export function LoginScreen() {
   const { fontScale } = useWindowDimensions();
@@ -80,15 +81,18 @@ export function LoginScreen() {
                 value={name}
                 onChange={setName}
                 placeholder="Nome completo"
+                autoCapitalize="words"
               />
 
-              <Button
-                onPress={onSubmit}
-                backgroundColor="#00FF87"
-                disabled={disabledButton}
-              >
-                <TextButton fontScale={fontScale}>Acessar</TextButton>
-              </Button>
+              {viewImageMain && (
+                <Button
+                  onPress={onSubmit}
+                  backgroundColor="#00FF87"
+                  disabled={disabledButton}
+                >
+                  <TextButton fontScale={fontScale}>Acessar</TextButton>
+                </Button>
+              )}
             </FormContainer>
 
             <Span fontScale={fontScale}>Siga a Cashy</Span>
@@ -96,12 +100,17 @@ export function LoginScreen() {
             <ContainerSocialLinks>
               <SocialLink
                 pathImage={iconInstagram}
-                url="https://www.instagram.com/finance.cashy/"
+                url="https://www.instagram.com/cashy.finance/"
               />
 
               <SocialLink
                 pathImage={iconLinkedin}
                 url="https://www.linkedin.com/company/cashyfinance/"
+              />
+
+              <SocialLink
+                pathImage={iconTiktok}
+                url="https://www.tiktok.com/@finance.cashy?lang=pt-BR"
               />
             </ContainerSocialLinks>
           </ContainerContent>

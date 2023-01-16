@@ -5,7 +5,7 @@ interface ITextProps {
 }
 
 export const Container = styled.View`
-  width: 90%;
+  width: 80%;
   align-self: center;
   padding: 24px;
   border-radius: 36px;

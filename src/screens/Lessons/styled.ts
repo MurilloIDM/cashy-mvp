@@ -142,3 +142,17 @@ export const TextButton = styled.Text<ITextProps>`
   color: ${({ theme, colorName }) => theme.colors[colorName]};
   font-family: ${({ theme }) => theme.fonts.black};
 `;
+
+export const GraphicOne = styled.Image`
+  width: 220px;
+  height: 115px;
+  margin-top: 12px;
+  align-self: center;
+`;
+
+export const GraphicTwo = styled.Image`
+  width: 220px;
+  height: 150px;
+  margin-top: 12px;
+  align-self: center;
+`;

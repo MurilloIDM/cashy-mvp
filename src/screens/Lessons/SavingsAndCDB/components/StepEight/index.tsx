@@ -11,6 +11,7 @@ import {
   BoxText,
   ContainerButtonUnique,
   Footer,
+  GraphicOne,
   ImageLogo,
   SpanGreen,
   Text,
@@ -37,6 +38,8 @@ export function StepEight() {
           Agora dá uma olhada comparando a poupança com um CDB que rende 15,8% ao ano, com um investimento inicial de R$ 1.000,00 em 12 meses.
         </Text>
       </BoxText>
+
+      <GraphicOne source={require("../../../../../../assets/graf_1.png")} />
 
       <Footer>
         <ContainerButtonUnique>

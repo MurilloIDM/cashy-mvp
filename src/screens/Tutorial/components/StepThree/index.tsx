@@ -33,11 +33,8 @@ export function StepThree() {
       <ContainerText>
         <Subtitle fontScale={fontScale}>
           Através das 
-          <Span
-            fontScale={fontScale}
-          >
-            CashyCoins
-          </Span> você pode juntar e adquirir seu certificado Cashy, bottoms e outros!
+          <Span fontScale={fontScale}> CashyCoins </Span>
+          você pode juntar e adquirir seu certificado Cashy, bottoms e outros!
         </Subtitle>
 
         <ImageCashyCoins source={require("../../../../../assets/tutorial-cashycoins.png")} />

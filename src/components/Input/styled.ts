@@ -36,5 +36,5 @@ export const TextInputMask = styled(MaskInput)<ITextProps>`
   font-family: ${({ theme }) => theme.fonts.book};
   color: ${({ theme, color }) => color ? theme.colors[color] : theme.colors.black_opacity_60};
   border-bottom-width: 1px;
-  border-bottom-color: ${({ theme }) => theme.colors.black};
+  border-bottom-color: ${({ theme }) => theme.colors.white};
 `;
