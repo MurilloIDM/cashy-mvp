@@ -42,12 +42,14 @@ export const ImageBackground = styled.Image`
 
 export const Title = styled.Text<ITextProps>`
   ${({ fontScale }) => `font-size: ${32 / fontScale}px`};
+  ${({ fontScale }) => `line-height: ${36 / fontScale}px`};
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
 export const TextContent = styled.Text<ITextProps>`
   ${({ fontScale }) => `font-size: ${18 / fontScale}px`};
+  ${({ fontScale }) => `line-height: ${22 / fontScale}px`};
   margin: 16px 0 64px;
   font-family: ${({ theme }) => theme.fonts.book};
 `;
@@ -57,4 +59,10 @@ export const TextButton = styled.Text<ITextProps>`
   text-align: center;
   color: ${({ theme }) => theme.colors.green};
   font-family: ${({ theme }) => theme.fonts.black};
+`;
+
+export const ContainerButton = styled.View`
+  width: 90%;
+  position: absolute;
+  bottom: 24px;
 `;

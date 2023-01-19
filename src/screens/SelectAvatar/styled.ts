@@ -22,7 +22,7 @@ export const ContainerBackground = styled.View`
 export const ImageLogo = styled.Image`
   width: 167px;
   height: 49px;
-  top: 4px;
+  top: 8px;
   position: absolute;
   align-self: center;
 `;
@@ -30,7 +30,7 @@ export const ImageLogo = styled.Image`
 export const ImageBackground = styled.Image`
   width: 100%;
   height: 60%;
-  margin-top: -64px;
+  top: -35px;
   position: absolute;
   transform: rotate(-60deg);
 `;
@@ -42,7 +42,7 @@ export const ContainerContent = styled.View.attrs({
   width: 100%;
   height: 575px;
   min-height: 340px;
-  max-height: 575px;
+  max-height: 520px;
   position: absolute;
   bottom: 0;
   padding: 25px;
@@ -57,29 +57,32 @@ export const ContainerInfosUser = styled.View`
   width: 100%;
   align-items: center;
   justify-content: center;
-  position: relative;
-  top: 18%;
 `;
 
 export const Title = styled.Text<ITextProps>`
   ${({ fontScale }) => `font-size: ${40 / fontScale}px`};
-  color: ${({ theme }) => theme.colors.white};
-  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
+  color: ${({ theme }) => theme.colors.black};
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 
 export const Subtitle = styled.Text<ITextProps>`
   ${({ fontScale }) => `font-size: ${20 / fontScale}px`};
   text-align: center;
-  color: ${({ theme }) => theme.colors.white};
-  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
+  color: ${({ theme }) => theme.colors.black};
   font-family: ${({ theme }) => theme.fonts.black};
+`;
+
+export const Description = styled.Text<ITextProps>`
+  ${({ fontScale }) => `font-size: ${14 / fontScale}px`};
+  text-align: center;
+  color: ${({ theme }) => theme.colors.black};
+  font-family: ${({ theme }) => theme.fonts.book};
+  margin-top: 12px;
 `;
 
 export const Span = styled.Text<ITextProps>`
   ${({ fontScale }) => `font-size: ${20 / fontScale}px`};
   color: ${({ theme }) => theme.colors.green};
-  text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
   font-family: ${({ theme }) => theme.fonts.black};
 `;
 

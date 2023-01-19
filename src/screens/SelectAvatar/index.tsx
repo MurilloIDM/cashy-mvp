@@ -12,6 +12,7 @@ import {
   ContainerBackground,
   ContainerContent,
   ContainerInfosUser,
+  Description,
   ImageBackground,
   ImageLogo,
   Span,
@@ -50,16 +51,18 @@ export function SelectAvatarScreen() {
         <ImageBackground
           source={require("../../../assets/select-avatar.png")}
         />
-
-        <ContainerInfosUser>
-          <Title fontScale={fontScale}>{user?.firstname}</Title>
-
-          <Subtitle fontScale={fontScale}>Clique e escolha seu <Span fontScale={fontScale}>Avatar</Span></Subtitle>
-        </ContainerInfosUser>
       </ContainerBackground>
 
 
       <ContainerContent>
+        <ContainerInfosUser>
+          <Title fontScale={fontScale}>{user?.firstname}</Title>
+
+          <Subtitle fontScale={fontScale}>Clique e escolha seu <Span fontScale={fontScale}>Avatar</Span></Subtitle>
+
+          <Description fontScale={fontScale}>Arraste para o lado para navegar entre as opções</Description>
+        </ContainerInfosUser>
+
         <AvatarList
           imageSelected={imageSelected}
           handleClickImage={handleClickImage}

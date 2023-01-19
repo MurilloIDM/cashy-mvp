@@ -25,12 +25,12 @@ export function StepEleven() {
   const { progress, updateProgress, updateCurrentStep } = React.useContext<ILesson>(LessonContext);
 
   function handleClickOptionOne() {
-    updateCurrentStep("step-twelve");
+    updateCurrentStep("step-thirteen");
+    updateProgress(9, 9);
   }
 
   function handleClickOptionTwo() {
-    updateCurrentStep("step-thirteen");
-    updateProgress(9, 9);
+    updateCurrentStep("step-twelve");
   }
 
   return (
@@ -52,7 +52,7 @@ export function StepEleven() {
 
       <Text fontScale={fontScale} style={{ textAlign: "center", color: "#FFF", marginTop: 12 }}>
         Te faço <SpanGreen fontScale={fontScale}>perder</SpanGreen> dinheiro.{"\n"}
-        Tenho <SpanGreen fontScale={fontScale}>melhores</SpanGreen> opções.{"\n"}
+        Tenho <SpanGreen fontScale={fontScale}>menos</SpanGreen> opções.{"\n"}
         Rendo <SpanGreen fontScale={fontScale}>mensalmente</SpanGreen>.
       </Text>
 

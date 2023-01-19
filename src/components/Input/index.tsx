@@ -34,6 +34,7 @@ const InputWithMask = ({
   required,
   placeholder,
   fontScale,
+  ...props
 }) => {
   return (
     <Container>
@@ -48,6 +49,7 @@ const InputWithMask = ({
         fontScale={fontScale}
         onChangeText={onChange}
         placeholder={placeholder}
+        {...props}
       />
     </Container>
   );

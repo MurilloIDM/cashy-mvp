@@ -22,7 +22,7 @@ export function StepFive() {
 
       <BoxText>
         <Text fontScale={fontScale}>
-          O tempo é o principal fator que influencia o dinheiro, seja diretamente ou indiretamente, quanto mais cedo você começar a investir (hoje) melhor será sua recompensa no longo do prazo.
+          O tempo é o principal fator que influência o dinheiro, seja diretamente ou indiretamente, quanto mais cedo você começar a investir (hoje) melhor será sua recompensa no longo do prazo.
         </Text>
       </BoxText>
 

@@ -14,12 +14,10 @@ export const Container = styled.View`
 `;
 
 export const Image = styled.Image`
-  width: 220px;
-  height: 220px;
+  width: 160px;
+  height: 148px;
   margin-top: 32px;
   border-radius: 220px;
-  border: 6px solid ${({ theme }) => theme.colors.green};
-  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const ImageLogo = styled.Image`

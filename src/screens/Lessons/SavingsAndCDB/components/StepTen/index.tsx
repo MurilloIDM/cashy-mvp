@@ -10,6 +10,7 @@ import {
   BoxText,
   ContainerButtonUnique,
   Footer,
+  GraphicTwo,
   ImageLogo,
   Text,
   TextButton,
@@ -37,6 +38,8 @@ export function StepTen() {
 
         <TextExtraInfo fontScale={fontScale}>Fonte: Toro Investimentos</TextExtraInfo>
       </BoxText>
+
+      <GraphicTwo source={require("../../../../../../assets/graf_2.png")} />
 
       <Footer>
         <ContainerButtonUnique>

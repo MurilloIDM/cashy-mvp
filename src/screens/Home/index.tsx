@@ -10,7 +10,8 @@ import {
   ImageBackground,
   Title,
   TextContent,
-  TextButton
+  TextButton,
+  ContainerButton
 } from "./styled";
 
 export function HomeScreen({ navigation }) {
@@ -45,13 +46,15 @@ export function HomeScreen({ navigation }) {
         endFillColor={"#000"}
         onLayout={onLayoutContainer}
       >
-        <Title fontScale={fontScale}>Vem com a cashy e ganhe seu certificado!</Title>
+        <Title fontScale={fontScale}>Aprenda com a Cashy!</Title>
 
         <TextContent fontScale={fontScale}>
-          Aprenda a cuidar do seu dinheiro enquanto joga! De forma descomplicada junte CashyCoins e consiga
-          seu certificado exclusivo!
+          Cuide do seu dinheiro enquanto joga, com os CashyCoins você obtém um certificado exclusivo.
         </TextContent>
 
+      </ContainerContent>
+      
+      <ContainerButton>
         <Button
           onPress={() => navigation.navigate("Login")}
         >
@@ -59,8 +62,7 @@ export function HomeScreen({ navigation }) {
             Começar
           </TextButton>
         </Button>
-      </ContainerContent>      
-
+      </ContainerButton>
     </Container>
   );
 }

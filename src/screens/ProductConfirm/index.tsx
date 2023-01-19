@@ -41,7 +41,7 @@ export function ProductConfirmScreen({ navigation, route }) {
 
 
     navigation.navigate("Dashboard");
-    Linking.openURL("https://wa.me/5534997977322?text=Quero+obter+o+meu+certificado+da+Cashy%21");
+    Linking.openURL("https://wa.me/5534991454685?text=Quero+obter+o+meu+certificado+da+Cashy%21");
   }
 
   return (

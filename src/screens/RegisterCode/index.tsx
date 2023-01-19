@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar, useWindowDimensions } from "react-native";
+import { LayoutChangeEvent, StatusBar, useWindowDimensions } from "react-native";
 
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
@@ -25,13 +25,21 @@ import {
 
 export function RegisterCodeScreen({ navigation, route }) {
   const { lessonCode } = route.params;
-  const { fontScale } = useWindowDimensions();
+  const { height: heightScreen, fontScale } = useWindowDimensions();
 
   const { user, updateValueUser } = React.useContext<IValueAccessContext>(AccessContext);
 
   const [error, setError] = React.useState(false);
   const [code, setCode] = React.useState(lessonCode || "");
   const [validCode, setValidCode] = React.useState(!!lessonCode);
+  const [heightContainerContent, setHeightContainerContent] = React.useState(null);
+
+  function onLayoutContainer(event: LayoutChangeEvent): void {
+    const { height } = event.nativeEvent.layout;
+
+    const percentege = (height * 100) / heightScreen;
+    setHeightContainerContent(percentege);
+  }
 
   const hasCode = !!code;
 
@@ -54,7 +62,7 @@ export function RegisterCodeScreen({ navigation, route }) {
   }
   
   return (
-    <Container>
+    <Container onLayout={onLayoutContainer}>
       <StatusBar
         barStyle="light-content"
         backgroundColor="#1E1E1E"
@@ -74,9 +82,10 @@ export function RegisterCodeScreen({ navigation, route }) {
                 value={code}
                 type="numeric"
                 color="white"
-                placeholder="000-000"
+                placeholder="XXX-XXX"
+                placeholderTextColor="rgba(255, 255, 255, 0.6)"
                 onChange={(newValue: string) => setCode(newValue)}
-                mask={[/[1-9]/, /[1-9]/, /[1-9]/, "-", /[1-9]/, /[1-9]/, /[1-9]/]}
+                mask={[/[0-9]/, /[0-9]/, /[0-9]/, "-", /[0-9]/, /[0-9]/, /[0-9]/]}
               />
 
               {error && (
@@ -85,17 +94,19 @@ export function RegisterCodeScreen({ navigation, route }) {
             </FormContent>
           </Form>
 
-          <ButtonContainer>
-            <Button
-              onPress={onSumit}
-              disabled={!(!!hasCode)}
-              backgroundColor="#00FF87"
-            >
-              <TextButton fontScale={fontScale}>
-                Confirmar
-              </TextButton>
-            </Button>
-          </ButtonContainer>
+          {heightContainerContent >= 95 && (
+            <ButtonContainer>
+              <Button
+                onPress={onSumit}
+                disabled={!(!!hasCode)}
+                backgroundColor="#00FF87"
+              >
+                <TextButton fontScale={fontScale}>
+                  Confirmar
+                </TextButton>
+              </Button>
+            </ButtonContainer>
+          )}
         </>
       ) : (
         <>
@@ -115,7 +126,7 @@ export function RegisterCodeScreen({ navigation, route }) {
               backgroundColor="#00FF87"
             >
               <TextButton fontScale={fontScale}>
-                Fechar
+                Concluir cadastro
               </TextButton>
             </Button>
           </ButtonContainer>
